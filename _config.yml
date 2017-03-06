@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 郝晓旭
 subtitle:
 description:
-author: John Doe
+author: 郝晓旭
 language:
 timezone:
 
@@ -69,5 +69,5 @@ theme: huno
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/xxh332211/xxh332211.github.io
+  repository: https://github.com/xxh332211/xxh332211.github.io.git
   branch: master
