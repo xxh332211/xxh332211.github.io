@@ -34,3 +34,8 @@ twitter:
 google_plus:
 fb_admins:
 fb_app_id:
+
+deploy:
+  type: git
+  repository: https://github.com/xxh332211/xxh332211.github.io.git
+  branch: master
