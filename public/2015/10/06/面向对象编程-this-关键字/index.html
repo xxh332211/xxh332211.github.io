@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      面向对象编程-this 关键字 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="目录
+涵义
+使用场合
+使用注意点
+绑定 this 的方法
+function.prototype.call()
+function.prototype.apply()
+function.prototype.bind()
+
+
+参考链接1.涵义this关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。
+
+首先，this总是返回一个对象，简单说，就是返回属性或方法“当前”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象编程-this 关键字 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2015/10/06/面向对象编程-this-关键字/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目录
+涵义
+使用场合
+使用注意点
+绑定 this 的方法
+function.prototype.call()
+function.prototype.apply()
+function.prototype.bind()
+
+
+参考链接1.涵义this关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。
+
+首先，this总是返回一个对象，简单说，就是返回属性或方法“当前”">
+<meta property="og:updated_time" content="2017-03-06T10:45:06.525Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象编程-this 关键字 | Hexo">
+<meta name="twitter:description" content="目录
+涵义
+使用场合
+使用注意点
+绑定 this 的方法
+function.prototype.call()
+function.prototype.apply()
+function.prototype.bind()
+
+
+参考链接1.涵义this关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。
+
+首先，this总是返回一个对象，简单说，就是返回属性或方法“当前”">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">面向对象编程-this 关键字</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2015-10-06" class="post-meta__date date">2015-10-06</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/面向对象编程/">-面向对象编程</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>涵义</li>
+<li>使用场合</li>
+<li>使用注意点</li>
+<li>绑定 this 的方法<ul>
+<li>function.prototype.call()</li>
+<li>function.prototype.apply()</li>
+<li>function.prototype.bind()</li>
+</ul>
+</li>
+<li>参考链接<h2 id="1-涵义"><a href="#1-涵义" class="headerlink" title="1.涵义"></a>1.涵义</h2>this关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。</li>
+</ul>
+<p>首先，this总是返回一个对象，简单说，就是返回属性或方法“当前”所在的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.property</div></pre></td></tr></table></figure></p>
+<p>上面代码中，this就代表property属性当前所在的对象。<br><a id="more"></a><br>下面是一个实际的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">  name: &apos;张三&apos;,</div><div class="line">  describe: function () &#123;</div><div class="line">    return &apos;姓名：&apos;+ this.name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">person.describe()</div><div class="line">// &quot;姓名：张三&quot;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，this.name表示describe方法所在的当前对象的name属性。调用person.describe方法时，describe方法所在的当前对象是person，所以就是调用person.name。</p>
+<p>由于对象的属性可以赋给另一个对象，所以属性所在的当前对象是可变的，即this的指向是可变的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var A = &#123;</div><div class="line">  name: &apos;张三&apos;,</div><div class="line">  describe: function () &#123;</div><div class="line">    return &apos;姓名：&apos;+ this.name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var B = &#123;</div><div class="line">  name: &apos;李四&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">B.describe = A.describe;</div><div class="line">B.describe()</div><div class="line">// &quot;姓名：李四&quot;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，A.describe属性被赋给B，于是B.describe就表示describe方法所在的当前对象是B，所以this.name就指向B.name。</p>
+<p>稍稍重构这个例子，this的动态指向就能看得更清楚。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">  return &apos;姓名：&apos;+ this.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var A = &#123;</div><div class="line">  name: &apos;张三&apos;,</div><div class="line">  describe: f</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var B = &#123;</div><div class="line">  name: &apos;李四&apos;,</div><div class="line">  describe: f</div><div class="line">&#125;;</div><div class="line"></div><div class="line">A.describe() // &quot;姓名：张三&quot;</div><div class="line">B.describe() // &quot;姓名：李四&quot;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，函数f内部使用了this关键字，随着f所在的对象不同，this的指向也不同。</p>
+<p>只要函数被赋给另一个变量，this的指向就会变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var A = &#123;</div><div class="line">  name: &apos;张三&apos;,</div><div class="line">  describe: function () &#123;</div><div class="line">    return &apos;姓名：&apos;+ this.name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var name = &apos;李四&apos;;</div><div class="line">var f = A.describe;</div><div class="line">f() // &quot;姓名：李四&quot;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，A.describe被赋值给变量f，内部的this就会指向f运行时所在的对象（本例是顶层对象）。</p>
+<p>再看一个网页编程的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; name=&quot;age&quot; size=3 onChange=&quot;validate(this, 18, 99);&quot;&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">function validate(obj, lowval, hival)&#123;</div><div class="line">  if ((obj.value &lt; lowval) || (obj.value &gt; hival))</div><div class="line">    console.log(&apos;Invalid Value!&apos;);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>上面代码是一个文本输入框，每当用户输入一个值，就会调用onChange回调函数，验证这个值是否在指定范围。回调函数传入this，就代表传入当前对象（即文本框），然后就可以从this.value上面读到用户的输入值。</p>
+<p>总结一下，JavaScript语言之中，一切皆对象，运行环境也是对象，所以函数都是在某个对象之中运行，this就是这个对象（环境）。这本来并不会让用户糊涂，但是JavaScript支持运行环境动态切换，也就是说，this的指向是动态的，没有办法事先确定到底指向哪个对象，这才是最让初学者感到困惑的地方。</p>
+<p>如果一个函数在全局环境中运行，那么this就是指顶层对象（浏览器中为window对象）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">  return this;</div><div class="line">&#125;</div><div class="line"></div><div class="line">f() === window // true</div></pre></td></tr></table></figure></p>
+<p>上面代码中，函数f在全局环境运行，它内部的this就指向顶层对象window。</p>
+<p>可以近似地认为，this是所有函数运行时的一个隐藏参数，指向函数的运行环境。</p>
+<h2 id="2-使用场合"><a href="#2-使用场合" class="headerlink" title="2.使用场合"></a>2.使用场合</h2><p>this的使用可以分成以下几个场合。</p>
+<p>（1）全局环境</p>
+<p>在全局环境使用this，它指的就是顶层对象window。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">this === window // true</div><div class="line"></div><div class="line">function f() &#123;</div><div class="line">  console.log(this === window); // true</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码说明，不管是不是在函数内部，只要是在全局环境下运行，this就是指顶层对象window。</p>
+<p>（2）构造函数</p>
+<p>构造函数中的this，指的是实例对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var Obj = function (p) &#123;</div><div class="line">  this.p = p;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Obj.prototype.m = function() &#123;</div><div class="line">  return this.p;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>上面代码定义了一个构造函数Obj。由于this指向实例对象，所以在构造函数内部定义this.p，就相当于定义实例对象有一个p属性；然后m方法可以返回这个p属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var o = new Obj(&apos;Hello World!&apos;);</div><div class="line"></div><div class="line">o.p // &quot;Hello World!&quot;</div><div class="line">o.m() // &quot;Hello World!&quot;</div></pre></td></tr></table></figure></p>
+<p>（3）对象的方法</p>
+<p>当A对象的方法被赋予B对象，该方法中的this就从指向A对象变成了指向B对象。所以要特别小心，将某个对象的方法赋值给另一个对象，会改变this的指向。</p>
+<p>请看下面的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var obj =&#123;</div><div class="line">  foo: function () &#123;</div><div class="line">    console.log(this);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.foo() // obj</div></pre></td></tr></table></figure></p>
+<p>上面代码中，obj.foo方法执行时，它内部的this指向obj。</p>
+<p>但是，只有这一种用法（直接在obj对象上调用foo方法），this指向obj；其他用法时，this都指向代码块当前所在对象（浏览器为window对象）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 情况一</div><div class="line">(obj.foo = obj.foo)() // window</div><div class="line"></div><div class="line">// 情况二</div><div class="line">(false || obj.foo)() // window</div><div class="line"></div><div class="line">// 情况三</div><div class="line">(1, obj.foo)() // window</div></pre></td></tr></table></figure></p>
+<p>上面代码中，obj.foo先运算再执行，即使它的值根本没有变化，this也不再指向obj了。</p>
+<p>可以这样理解，在JavaScript引擎内部，obj和obj.foo储存在两个内存地址，简称为M1和M2。只有obj.foo()这样调用时，是从M1调用M2，因此this指向obj。但是，上面三种情况，都是直接取出M2进行运算，然后就在全局环境执行运算结果（还是M2），因此this指向全局环境。</p>
+<p>上面三种情况等同于下面的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// 情况一</div><div class="line">(obj.foo = function () &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">// 情况二</div><div class="line">(false || function () &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;)()</div><div class="line"></div><div class="line">// 情况三</div><div class="line">(1, function () &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
+<p>同样的，如果某个方法位于多层对象的内部，这时为了简化书写，把该方法赋值给一个变量，往往会得到意料之外的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">  b: &#123;</div><div class="line">    m: function() &#123;</div><div class="line">      console.log(this.p);</div><div class="line">    &#125;,</div><div class="line">    p: &apos;Hello&apos;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var hello = a.b.m;</div><div class="line">hello() // undefined</div></pre></td></tr></table></figure></p>
+<p>上面代码中，m是多层对象内部的一个方法。为求简便，将其赋值给hello变量，结果调用时，this指向了顶层对象。为了避免这个问题，可以只将m所在的对象赋值给hello，这样调用时，this的指向就不会变。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var hello = a.b;</div><div class="line">hello.m() // Hello</div></pre></td></tr></table></figure></p>
+<p>（4）Node</p>
+<p>在Node中，this的指向又分成两种情况。全局环境中，this指向全局对象global；模块环境中，this指向module.exports。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 全局环境</div><div class="line">this === global // true</div><div class="line"></div><div class="line">// 模块环境</div><div class="line">this === module.exports // true</div></pre></td></tr></table></figure></p>
+<h2 id="3-使用注意点"><a href="#3-使用注意点" class="headerlink" title="3.使用注意点"></a>3.使用注意点</h2><p>（1）避免多层this</p>
+<p>由于this的指向是不确定的，所以切勿在函数中包含多层的this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  f1: function () &#123;</div><div class="line">    console.log(this);</div><div class="line">    var f2 = function () &#123;</div><div class="line">      console.log(this);</div><div class="line">    &#125;();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f1()</div><div class="line">// Object</div><div class="line">// Window</div></pre></td></tr></table></figure></p>
+<p>上面代码包含两层this，结果运行后，第一层指向该对象，第二层指向全局对象。实际执行的是下面的代码。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var temp = function () &#123;</div><div class="line">  console.log(this);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var o = &#123;</div><div class="line">  f1: function () &#123;</div><div class="line">    console.log(this);</div><div class="line">    var f2 = temp();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>一个解决方法是在第二层改用一个指向外层this的变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  f1: function() &#123;</div><div class="line">    console.log(this);</div><div class="line">    var that = this;</div><div class="line">    var f2 = function() &#123;</div><div class="line">      console.log(that);</div><div class="line">    &#125;();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f1()</div><div class="line">// Object</div><div class="line">// Object</div></pre></td></tr></table></figure></p>
+<p>上面代码定义了变量that，固定指向外层的this，然后在内层使用that，就不会发生this指向的改变。</p>
+<p>事实上，使用一个变量固定this的值，然后内层函数调用这个变量，是非常常见的做法，有大量应用，请务必掌握。</p>
+<p>JavaScript 提供了严格模式，也可以硬性避免这种问题。在严格模式下，如果函数内部的this指向顶层对象，就会报错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var counter = &#123;</div><div class="line">  count: 0</div><div class="line">&#125;;</div><div class="line">counter.inc = function () &#123;</div><div class="line">  &apos;use strict&apos;;</div><div class="line">  this.count++</div><div class="line">&#125;;</div><div class="line">var f = counter.inc;</div><div class="line">f()</div><div class="line">// TypeError: Cannot read property &apos;count&apos; of undefined</div></pre></td></tr></table></figure></p>
+<p>上面代码中，inc方法通过’use strict’声明采用严格模式，这时内部的this一旦指向顶层对象，就会报错。</p>
+<p>（2）避免数组处理方法中的this</p>
+<p>数组的map和foreach方法，允许提供一个函数作为参数。这个函数内部不应该使用this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  v: &apos;hello&apos;,</div><div class="line">  p: [ &apos;a1&apos;, &apos;a2&apos; ],</div><div class="line">  f: function f() &#123;</div><div class="line">    this.p.forEach(function (item) &#123;</div><div class="line">      console.log(this.v + &apos; &apos; + item);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f()</div><div class="line">// undefined a1</div><div class="line">// undefined a2</div></pre></td></tr></table></figure></p>
+<p>上面代码中，foreach方法的回调函数中的this，其实是指向window对象，因此取不到o.v的值。原因跟上一段的多层this是一样的，就是内层的this不指向外部，而指向顶层对象。</p>
+<p>解决这个问题的一种方法，是使用中间变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  v: &apos;hello&apos;,</div><div class="line">  p: [ &apos;a1&apos;, &apos;a2&apos; ],</div><div class="line">  f: function f() &#123;</div><div class="line">    var that = this;</div><div class="line">    this.p.forEach(function (item) &#123;</div><div class="line">      console.log(that.v+&apos; &apos;+item);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f()</div><div class="line">// hello a1</div><div class="line">// hello a2</div></pre></td></tr></table></figure></p>
+<p>另一种方法是将this当作foreach方法的第二个参数，固定它的运行环境。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">  v: &apos;hello&apos;,</div><div class="line">  p: [ &apos;a1&apos;, &apos;a2&apos; ],</div><div class="line">  f: function f() &#123;</div><div class="line">    this.p.forEach(function (item) &#123;</div><div class="line">      console.log(this.v + &apos; &apos; + item);</div><div class="line">    &#125;, this);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f()</div><div class="line">// hello a1</div><div class="line">// hello a2</div></pre></td></tr></table></figure></p>
+<p>（3）避免回调函数中的this</p>
+<p>回调函数中的this往往会改变指向，最好避免使用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line"></div><div class="line">o.f = function () &#123;</div><div class="line">  console.log(this === o);</div><div class="line">&#125;</div><div class="line"></div><div class="line">o.f() // true</div></pre></td></tr></table></figure></p>
+<p>上面代码表示，如果调用o对象的f方法，其中的this就是指向o对象。</p>
+<p>但是，如果将f方法指定给某个按钮的click事件，this的指向就变了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(&apos;#button&apos;).on(&apos;click&apos;, o.f);</div></pre></td></tr></table></figure></p>
+<p>点击按钮以后，控制台会显示false。原因是此时this不再指向o对象，而是指向按钮的DOM对象，因为f方法是在按钮对象的环境中被调用的。这种细微的差别，很容易在编程中忽视，导致难以察觉的错误。</p>
+<p>为了解决这个问题，可以采用下面的一些方法对this进行绑定，也就是使得this固定指向某个对象，减少不确定性。</p>
+<h2 id="4-绑定-this-的方法"><a href="#4-绑定-this-的方法" class="headerlink" title="4.绑定 this 的方法"></a>4.绑定 this 的方法</h2><p>this的动态切换，固然为JavaScript创造了巨大的灵活性，但也使得编程变得困难和模糊。有时，需要把this固定下来，避免出现意想不到的情况。JavaScript提供了call、apply、bind这三个方法，来切换/固定this的指向。</p>
+<h3 id="4-1function-prototype-call"><a href="#4-1function-prototype-call" class="headerlink" title="4.1function.prototype.call()"></a>4.1function.prototype.call()</h3><p>函数实例的call方法，可以指定函数内部this的指向（即函数执行时所在的作用域），然后在所指定的作用域中，调用该函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line"></div><div class="line">var f = function () &#123;</div><div class="line">  return this;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">f() === this // true</div><div class="line">f.call(obj) === obj // true</div></pre></td></tr></table></figure></p>
+<p>上面代码中，在全局环境运行函数f时，this指向全局环境；call方法可以改变this的指向，指定this指向对象obj，然后在对象obj的作用域中运行函数f。</p>
+<p>call方法的参数，应该是一个对象。如果参数为空、null和undefined，则默认传入全局对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var n = 123;</div><div class="line">var obj = &#123; n: 456 &#125;;</div><div class="line"></div><div class="line">function a() &#123;</div><div class="line">  console.log(this.n);</div><div class="line">&#125;</div><div class="line"></div><div class="line">a.call() // 123</div><div class="line">a.call(null) // 123</div><div class="line">a.call(undefined) // 123</div><div class="line">a.call(window) // 123</div><div class="line">a.call(obj) // 456</div></pre></td></tr></table></figure></p>
+<p>上面代码中，a函数中的this关键字，如果指向全局对象，返回结果为123。如果使用call方法将this关键字指向obj对象，返回结果为456。可以看到，如果call方法没有参数，或者参数为null或undefined，则等同于指向全局对象。</p>
+<p>如果call方法的参数是一个原始值，那么这个原始值会自动转成对应的包装对象，然后传入call方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var f = function () &#123;</div><div class="line">  return this;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">f.call(5)</div><div class="line">// Number &#123;[[PrimitiveValue]]: 5&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，call的参数为5，不是对象，会被自动转成包装对象（Number的实例），绑定f内部的this。</p>
+<p>call方法还可以接受多个参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">func.call(thisValue, arg1, arg2, ...)</div></pre></td></tr></table></figure></p>
+<p>call的第一个参数就是this所要指向的那个对象，后面的参数则是函数调用时所需的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function add(a, b) &#123;</div><div class="line">  return a + b;</div><div class="line">&#125;</div><div class="line"></div><div class="line">add.call(this, 1, 2) // 3</div></pre></td></tr></table></figure></p>
+<p>上面代码中，call方法指定函数add内部的this绑定当前环境（对象），并且参数为1和2，因此函数add运行后得到3。</p>
+<p>call方法的一个应用是调用对象的原生方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;&#125;;</div><div class="line">obj.hasOwnProperty(&apos;toString&apos;) // false</div><div class="line"></div><div class="line">// 覆盖掉继承的 hasOwnProperty 方法</div><div class="line">obj.hasOwnProperty = function () &#123;</div><div class="line">  return true;</div><div class="line">&#125;;</div><div class="line">obj.hasOwnProperty(&apos;toString&apos;) // true</div><div class="line"></div><div class="line">Object.prototype.hasOwnProperty.call(obj, &apos;toString&apos;) // false</div></pre></td></tr></table></figure></p>
+<p>上面代码中，hasOwnProperty是obj对象继承的方法，如果这个方法一旦被覆盖，就不会得到正确结果。call方法可以解决这个方法，它将hasOwnProperty方法的原始定义放到obj对象上执行，这样无论obj上有没有同名方法，都不会影响结果。</p>
+<h3 id="4-2function-prototype-apply"><a href="#4-2function-prototype-apply" class="headerlink" title="4.2function.prototype.apply()"></a>4.2function.prototype.apply()</h3><p>apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数。唯一的区别就是，它接收一个数组作为函数执行时的参数，使用格式如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">func.apply(thisValue, [arg1, arg2, ...])</div></pre></td></tr></table></figure></p>
+<p>apply方法的第一个参数也是this所要指向的那个对象，如果设为null或undefined，则等同于指定全局对象。第二个参数则是一个数组，该数组的所有成员依次作为参数，传入原函数。原函数的参数，在call方法中必须一个个添加，但是在apply方法中，必须以数组形式添加。</p>
+<p>请看下面的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function f(x,y)&#123;</div><div class="line">  console.log(x+y);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f.call(null,1,1) // 2</div><div class="line">f.apply(null,[1,1]) // 2</div></pre></td></tr></table></figure></p>
+<p>上面的f函数本来接受两个参数，使用apply方法以后，就变成可以接受一个数组作为参数。</p>
+<p>利用这一点，可以做一些有趣的应用。</p>
+<p>（1）找出数组最大元素</p>
+<p>JavaScript不提供找出数组最大元素的函数。结合使用apply方法和Math.max方法，就可以返回数组的最大元素。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var a = [10, 2, 4, 15, 9];</div><div class="line"></div><div class="line">Math.max.apply(null, a)</div><div class="line">// 15</div></pre></td></tr></table></figure></p>
+<p>（2）将数组的空元素变为undefined</p>
+<p>通过apply方法，利用Array构造函数将数组的空元素变成undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Array.apply(null, [&quot;a&quot;,,&quot;b&quot;])</div><div class="line">// [ &apos;a&apos;, undefined, &apos;b&apos; ]</div></pre></td></tr></table></figure></p>
+<p>空元素与undefined的差别在于，数组的forEach方法会跳过空元素，但是不会跳过undefined。因此，遍历内部元素的时候，会得到不同的结果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var a = [&apos;a&apos;, , &apos;b&apos;];</div><div class="line"></div><div class="line">function print(i) &#123;</div><div class="line">  console.log(i);</div><div class="line">&#125;</div><div class="line"></div><div class="line">a.forEach(print)</div><div class="line">// a</div><div class="line">// b</div><div class="line"></div><div class="line">Array.apply(null, a).forEach(print)</div><div class="line">// a</div><div class="line">// undefined</div><div class="line">// b</div></pre></td></tr></table></figure></p>
+<p>（3）转换类似数组的对象</p>
+<p>另外，利用数组对象的slice方法，可以将一个类似数组的对象（比如arguments对象）转为真正的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Array.prototype.slice.apply(&#123;0:1,length:1&#125;)</div><div class="line">// [1]</div><div class="line"></div><div class="line">Array.prototype.slice.apply(&#123;0:1&#125;)</div><div class="line">// []</div><div class="line"></div><div class="line">Array.prototype.slice.apply(&#123;0:1,length:2&#125;)</div><div class="line">// [1, undefined]</div><div class="line"></div><div class="line">Array.prototype.slice.apply(&#123;length:1&#125;)</div><div class="line">// [undefined]</div></pre></td></tr></table></figure></p>
+<p>上面代码的apply方法的参数都是对象，但是返回结果都是数组，这就起到了将对象转成数组的目的。从上面代码可以看到，这个方法起作用的前提是，被处理的对象必须有length属性，以及相对应的数字键。</p>
+<p>（4）绑定回调函数的对象</p>
+<p>上一节按钮点击事件的例子，可以改写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var o = new Object();</div><div class="line"></div><div class="line">o.f = function () &#123;</div><div class="line">  console.log(this === o);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var f = function ()&#123;</div><div class="line">  o.f.apply(o);</div><div class="line">  // 或者 o.f.call(o);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">$(&apos;#button&apos;).on(&apos;click&apos;, f);</div></pre></td></tr></table></figure></p>
+<p>点击按钮以后，控制台将会显示true。由于apply方法（或者call方法）不仅绑定函数执行时所在的对象，还会立即执行函数，因此不得不把绑定语句写在一个函数体内。更简洁的写法是采用下面介绍的bind方法。</p>
+<h3 id="4-3function-prototype-bind"><a href="#4-3function-prototype-bind" class="headerlink" title="4.3function.prototype.bind()"></a>4.3function.prototype.bind()</h3><p>bind方法用于将函数体内的this绑定到某个对象，然后返回一个新函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var d = new Date();</div><div class="line">d.getTime() // 1481869925657</div><div class="line"></div><div class="line">var print = d.getTime;</div><div class="line">print() // Uncaught TypeError: this is not a Date object.</div></pre></td></tr></table></figure></p>
+<p>上面代码中，我们将d.getTime方法赋给变量print，然后调用print就报错了。这是因为getTime方法内部的this，绑定Date对象的实例，赋给变量print以后，内部的this已经不指向Date对象的实例了。</p>
+<p>bind方法可以解决这个问题，让log方法绑定console对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var print = d.getTime.bind(d);</div><div class="line">print() // 1481869925657</div></pre></td></tr></table></figure></p>
+<p>上面代码中，bind方法将getTime方法内部的this绑定到d对象，这时就可以安全地将这个方法赋值给其他变量了。</p>
+<p>下面是一个更清晰的例子。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var counter = &#123;</div><div class="line">  count: 0,</div><div class="line">  inc: function () &#123;</div><div class="line">    this.count++;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">counter.count // 0</div><div class="line">counter.inc()</div><div class="line">counter.count // 1</div></pre></td></tr></table></figure></p>
+<p>上面代码中，counter.inc内部的this，默认指向counter对象。如果将这个方法赋值给另一个变量，就会出错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var counter = &#123;</div><div class="line">  count: 0,</div><div class="line">  inc: function () &#123;</div><div class="line">    this.count++;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var func = counter.inc;</div><div class="line">func();</div><div class="line">counter.count // 0</div><div class="line">count // NaN</div></pre></td></tr></table></figure></p>
+<p>上面代码中，函数func是在全局环境中运行的，这时inc内部的this指向顶层对象window，所以counter.count是不会变的，反而创建了一个全局变量count。因为window.count原来等于undefined，进行递增运算后undefined++就等于NaN。</p>
+<p>为了解决这个问题，可以使用this方法，将inc内部的this绑定到counter对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var func = counter.inc.bind(counter);</div><div class="line">func();</div><div class="line">counter.count // 1</div></pre></td></tr></table></figure></p>
+<p>上面代码中，bind方法将inc方法绑定到counter以后，再运行func就会得到正确结果。</p>
+<p>this绑定到其他对象也是可以的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">  count: 100</div><div class="line">&#125;;</div><div class="line">var func = counter.inc.bind(obj);</div><div class="line">func();</div><div class="line">obj.count // 101</div></pre></td></tr></table></figure></p>
+<p>上面代码中，bind方法将inc方法内部的this，绑定到obj对象。结果调用func函数以后，递增的就是obj内部的count属性。</p>
+<p>bind比call方法和apply方法更进一步的是，除了绑定this以外，还可以绑定原函数的参数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var add = function (x, y) &#123;</div><div class="line">  return x * this.m + y * this.n;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var obj = &#123;</div><div class="line">  m: 2,</div><div class="line">  n: 2</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var newAdd = add.bind(obj, 5);</div><div class="line"></div><div class="line">newAdd(5)</div><div class="line">// 20</div></pre></td></tr></table></figure></p>
+<p>上面代码中，bind方法除了绑定this对象，还将add函数的第一个参数x绑定成5，然后返回一个新函数newAdd，这个函数只要再接受一个参数y就能运行了。</p>
+<p>如果bind方法的第一个参数是null或undefined，等于将this绑定到全局对象，函数运行时this指向顶层对象（在浏览器中为window）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function add(x, y) &#123;</div><div class="line">  return x + y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var plus5 = add.bind(null, 5);</div><div class="line">plus5(10) // 15</div></pre></td></tr></table></figure></p>
+<p>上面代码中，函数add内部并没有this，使用bind方法的主要目的是绑定参数x，以后每次运行新函数plus5，就只需要提供另一个参数y就够了。而且因为add内部没有this，所以bind的第一个参数是null，不过这里如果是其他对象，也没有影响。</p>
+<p>对于那些不支持bind方法的老式浏览器，可以自行定义bind方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">if(!(&apos;bind&apos; in Function.prototype))&#123;</div><div class="line">  Function.prototype.bind = function()&#123;</div><div class="line">    var fn = this;</div><div class="line">    var context = arguments[0];</div><div class="line">    var args = Array.prototype.slice.call(arguments, 1);</div><div class="line">    return function()&#123;</div><div class="line">      return fn.apply(context, args);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>bind方法有一些使用注意点。</p>
+<p>（1）每一次返回一个新函数</p>
+<p>bind方法每运行一次，就返回一个新函数，这会产生一些问题。比如，监听事件的时候，不能写成下面这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.addEventListener(&apos;click&apos;, o.m.bind(o));</div></pre></td></tr></table></figure></p>
+<p>上面代码中，click事件绑定bind方法生成的一个匿名函数。这样会导致无法取消绑定，所以，下面的代码是无效的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.removeEventListener(&apos;click&apos;, o.m.bind(o));</div></pre></td></tr></table></figure></p>
+<p>正确的方法是写成下面这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var listener = o.m.bind(o);</div><div class="line">element.addEventListener(&apos;click&apos;, listener);</div><div class="line">//  ...</div><div class="line">element.removeEventListener(&apos;click&apos;, listener);</div></pre></td></tr></table></figure></p>
+<p>（2）结合回调函数使用</p>
+<p>回调函数是JavaScript最常用的模式之一，但是一个常见的错误是，将包含this的方法直接当作回调函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var counter = &#123;</div><div class="line">  count: 0,</div><div class="line">  inc: function () &#123;</div><div class="line">    &apos;use strict&apos;;</div><div class="line">    this.count++;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">function callIt(callback) &#123;</div><div class="line">  callback();</div><div class="line">&#125;</div><div class="line"></div><div class="line">callIt(counter.inc)</div><div class="line">// TypeError: Cannot read property &apos;count&apos; of undefined</div></pre></td></tr></table></figure></p>
+<p>上面代码中，counter.inc方法被当作回调函数，传入了callIt，调用时其内部的this指向callIt运行时所在的对象，即顶层对象window，所以得不到预想结果。注意，上面的counter.inc方法内部使用了严格模式，在该模式下，this指向顶层对象时会报错，一般模式不会。</p>
+<p>解决方法就是使用bind方法，将counter.inc绑定counter。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">callIt(counter.inc.bind(counter));</div><div class="line">counter.count // 1</div></pre></td></tr></table></figure></p>
+<p>还有一种情况比较隐蔽，就是某些数组方法可以接受一个函数当作参数。这些函数内部的this指向，很可能也会出错。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">  name: &apos;张三&apos;,</div><div class="line">  times: [1, 2, 3],</div><div class="line">  print: function () &#123;</div><div class="line">    this.times.forEach(function (n) &#123;</div><div class="line">      console.log(this.name);</div><div class="line">    &#125;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.print()</div><div class="line">// 没有任何输出</div></pre></td></tr></table></figure></p>
+<p>上面代码中，obj.print内部this.times的this是指向obj的，这个没有问题。但是，forEach方法的回调函数内部的this.name却是指向全局对象，导致没有办法取到值。稍微改动一下，就可以看得更清楚。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">obj.print = function () &#123;</div><div class="line">  this.times.forEach(function (n) &#123;</div><div class="line">    console.log(this === window);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.print()</div><div class="line">// true</div><div class="line">// true</div><div class="line">// true</div></pre></td></tr></table></figure></p>
+<p>解决这个问题，也是通过bind方法绑定this。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">obj.print = function () &#123;</div><div class="line">  this.times.forEach(function (n) &#123;</div><div class="line">    console.log(this.name);</div><div class="line">  &#125;.bind(this));</div><div class="line">&#125;;</div><div class="line"></div><div class="line">obj.print()</div><div class="line">// 张三</div><div class="line">// 张三</div><div class="line">// 张三</div></pre></td></tr></table></figure></p>
+<p>（3）结合call方法使用</p>
+<p>利用bind方法，可以改写一些JavaScript原生方法的使用形式，以数组的slice方法为例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[1, 2, 3].slice(0, 1)</div><div class="line">// [1]</div><div class="line"></div><div class="line">// 等同于</div><div class="line"></div><div class="line">Array.prototype.slice.call([1, 2, 3], 0, 1)</div><div class="line">// [1]</div></pre></td></tr></table></figure></p>
+<p>上面的代码中，数组的slice方法从[1, 2, 3]里面，按照指定位置和长度切分出另一个数组。这样做的本质是在[1, 2, 3]上面调用Array.prototype.slice方法，因此可以用call方法表达这个过程，得到同样的结果。</p>
+<p>call方法实质上是调用Function.prototype.call方法，因此上面的表达式可以用bind方法改写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var slice = Function.prototype.call.bind(Array.prototype.slice);</div><div class="line"></div><div class="line">slice([1, 2, 3], 0, 1) // [1]</div></pre></td></tr></table></figure></p>
+<p>可以看到，利用bind方法，将[1, 2, 3].slice(0, 1)变成了slice([1, 2, 3], 0, 1)的形式。这种形式的改变还可以用于其他数组方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var push = Function.prototype.call.bind(Array.prototype.push);</div><div class="line">var pop = Function.prototype.call.bind(Array.prototype.pop);</div><div class="line"></div><div class="line">var a = [1 ,2 ,3];</div><div class="line">push(a, 4)</div><div class="line">a // [1, 2, 3, 4]</div><div class="line"></div><div class="line">pop(a)</div><div class="line">a // [1, 2, 3]</div></pre></td></tr></table></figure></p>
+<p>如果再进一步，将Function.prototype.call方法绑定到Function.prototype.bind对象，就意味着bind的调用形式也可以被改写。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function f() &#123;</div><div class="line">  console.log(this.v);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var o = &#123; v: 123 &#125;;</div><div class="line"></div><div class="line">var bind = Function.prototype.call.bind(Function.prototype.bind);</div><div class="line"></div><div class="line">bind(f, o)() // 123</div></pre></td></tr></table></figure></p>
+<p>上面代码表示，将Function.prototype.call方法绑定Function.prototype.bind以后，bind方法的使用形式从f.bind(o)，变成了bind(f, o)。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

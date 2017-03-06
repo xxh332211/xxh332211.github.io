@@ -152,15 +152,33 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2017/03/06/dd/" title="link to "></a>
+        <a href="/2015/10/07/面向对象编程-prototype-对象/" title="link to 面向对象编程-prototype 对象">面向对象编程-prototype 对象</a>
       </h2>
 
       <div class="post-list__meta">
 
-        <time datetime="2017-03-06" class="post-list__meta--date date">2017-03-06</time> 
+        <time datetime="2015-10-07" class="post-list__meta--date date">2015-10-07</time> 
       </div>
 
       <div class="excerpt">
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>概述<ul>
+<li>构造函数的缺点</li>
+<li>prototype属性的作用</li>
+<li>原型链</li>
+<li>constructor属性</li>
+</ul>
+</li>
+<li>instanceof运算符</li>
+<li>Object.getPrototypeOf()</li>
+<li>Object.setPrototypeOf()</li>
+<li>Object.create()</li>
+<li>Object.prototype.isPrototypeOf()</li>
+<li>Object.prototype.<strong>proto</strong></li>
+<li>获取原型对象方法的比较<br>大部分面向对象的编程语言，都是以“类”（class）作为对象体系的语法基础。JavaScript语言不是如此，它的面向对象编程基于“原型对象”。</li>
+</ul>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><h3 id="1-1构造函数的缺点"><a href="#1-1构造函数的缺点" class="headerlink" title="1.1构造函数的缺点"></a>1.1构造函数的缺点</h3><p>JavaScript通过构造函数生成新对象，因此构造函数可以视为对象的模板。实例对象的属性和方法，可以定义在构造函数内部。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function Cat (name, color) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.color = color;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var cat1 = new Cat(&apos;大毛&apos;, &apos;白色&apos;);</div><div class="line"></div><div class="line">cat1.name // &apos;大毛&apos;</div><div class="line">cat1.color // &apos;白色&apos;</div></pre></td></tr></table></figure></p>
         
       </div>
 
@@ -170,15 +188,179 @@ classes that you can use:
     <li>
 
       <h2 class="post-list__post-title post-title">
-        <a href="/2017/03/06/hello-world/" title="link to Hello World">Hello World</a>
+        <a href="/2015/10/06/面向对象编程-this-关键字/" title="link to 面向对象编程-this 关键字">面向对象编程-this 关键字</a>
       </h2>
 
       <div class="post-list__meta">
 
-        <time datetime="2017-03-06" class="post-list__meta--date date">2017-03-06</time> 
+        <time datetime="2015-10-06" class="post-list__meta--date date">2015-10-06</time> 
       </div>
 
       <div class="excerpt">
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>涵义</li>
+<li>使用场合</li>
+<li>使用注意点</li>
+<li>绑定 this 的方法<ul>
+<li>function.prototype.call()</li>
+<li>function.prototype.apply()</li>
+<li>function.prototype.bind()</li>
+</ul>
+</li>
+<li>参考链接<h2 id="1-涵义"><a href="#1-涵义" class="headerlink" title="1.涵义"></a>1.涵义</h2>this关键字是一个非常重要的语法点。毫不夸张地说，不理解它的含义，大部分开发任务都无法完成。</li>
+</ul>
+<p>首先，this总是返回一个对象，简单说，就是返回属性或方法“当前”所在的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.property</div></pre></td></tr></table></figure></p>
+<p>上面代码中，this就代表property属性当前所在的对象。<br>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/10/03/面向对象编程-面向对象编程的模式/" title="link to 面向对象编程-面向对象编程的模式">面向对象编程-面向对象编程的模式</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-10-03" class="post-list__meta--date date">2015-10-03</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>构造函数的继承</li>
+<li>多重继承</li>
+<li>模块<ul>
+<li>基本的实现方法</li>
+<li>封装私有变量：构造函数的写法</li>
+<li>封装私有变量：立即执行函数的写法</li>
+<li>模块的放大模式</li>
+<li>输入全局变量</li>
+</ul>
+</li>
+<li>参考链接<br>本节介绍JavaScript语言实际编程中，涉及面向对象编程的一些模式。</li>
+</ul>
+<h2 id="1-构造函数的继承"><a href="#1-构造函数的继承" class="headerlink" title="1.构造函数的继承"></a>1.构造函数的继承</h2><p>让一个构造函数继承另一个构造函数，是非常常见的需求。</p>
+<p>这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Sub(value) &#123;</div><div class="line">  Super.call(this);</div><div class="line">  this.prop = value;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Sub是子类的构造函数，this是子类的实例。在实例上调用父类的构造函数Super，就会让子类实例具有父类实例的属性。<br>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/10/02/面向对象编程-Object-对象与继承/" title="link to 面向对象编程-Object 对象与继承">面向对象编程-Object 对象与继承</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-10-02" class="post-list__meta--date date">2015-10-02</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>Object.getOwnPropertyNames()</li>
+<li>Object.prototype.hasOwnProperty()</li>
+<li>in 运算符和 for…in 循环</li>
+<li>对象的拷贝</li>
+<li>参考链接<br>通过原型链，对象的属性分成两种：自身的属性和继承的属性。JavaScript 语言在Object对象上面，提供了很多相关方法，来处理这两种不同的属性。</li>
+</ul>
+<h2 id="1-Object-getOwnPropertyNames"><a href="#1-Object-getOwnPropertyNames" class="headerlink" title="1.Object.getOwnPropertyNames()"></a>1.Object.getOwnPropertyNames()</h2><p>Object.getOwnPropertyNames方法返回一个数组，成员是对象本身的所有属性的键名，不包含继承的属性键名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object.getOwnPropertyNames(Date)</div><div class="line">// [&quot;parse&quot;, &quot;arguments&quot;, &quot;UTC&quot;, &quot;caller&quot;, &quot;name&quot;, &quot;prototype&quot;, &quot;now&quot;, &quot;length&quot;]</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Object.getOwnPropertyNames方法返回Date所有自身的属性名。<br>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/10/01/面向对象编程-构造函数与-new-命令/" title="link to 面向对象编程-构造函数与 new 命令">面向对象编程-构造函数与 new 命令</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-10-01" class="post-list__meta--date date">2015-10-01</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>对象的概念</li>
+<li>构造函数</li>
+<li>new 命令<ul>
+<li>基本用法</li>
+<li>new命令的原理</li>
+<li>new.target<br>虽然不同于传统的面向对象编程语言，但是JavaScript具有很强的面向对象编程能力。本章介绍JavaScript如何进行“面向对象编程”。</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-对象的概念"><a href="#1-对象的概念" class="headerlink" title="1.对象的概念"></a>1.对象的概念</h2><p>“面向对象编程”（Object Oriented Programming，缩写为OOP）是目前主流的编程范式。它的核心思想是将真实世界中各种复杂的关系，抽象为一个个对象，然后由对象之间的分工与合作，完成对真实世界的模拟。<br>
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/09/02/HTML5的兼容性/" title="link to HTML5的兼容性">HTML5的兼容性</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-09-02" class="post-list__meta--date date">2015-09-02</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <ul>
+<li>因为在IE8及一下的IE版本是不兼容HTML5的新元素的，所以我们要是用HTML5开发的话，第一个要解决的就是兼容性的问题。<h2 id="HTML5的兼容性"><a href="#HTML5的兼容性" class="headerlink" title="HTML5的兼容性"></a>HTML5的兼容性</h2></li>
+<li>因为HTML5的新元素就是一些新的标签，IE只是不认识这些标签而已，那我们解决的问题就是让IE8一下版本的浏览器认识这些标签，或者说知道他就是一个标签，那么我们就解决了兼容性问题。</li>
+<li>比如：header 这个标签在IE8及一下的版本的浏览器中是不认识的，但是我们却可以通过一小段JS代码来创建标签，通过JS来创建的标签浏览器是可以识别的，我们就可以利用这个点来解决兼容性问题。</li>
+<li><p>这里就需要用到一个方法，document.createElement();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var oHeader = document.createElement(&quot;header&quot;);//-&gt; 动态创建一个标签‘header’</div><div class="line">document.body.appendChild(oHeader)//-&gt; 把header标签动态添加到body中</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样添加以后我们就可以在IE8下使用header标签了。但是，我们不确定我们的每一次开发中到底使用多少个header标签，也不确定具体要什么时候使用，如果说我们每一次使用的时候都写一小段JS代码来动态创建和动态添加的话，那就会很耗性能，所以我们只需要在最开始告诉浏览器一声，我创建了一个header标签就可以，至于什么时候用浏览器你就别管了，反正只要出现了这个标签你知道他是什么，会渲染他就可以了，我们就可以这样写</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.createElement(&quot;header&quot;);</div></pre></td></tr></table></figure>
+<ul>
+<li>这样就可以了，以后你再使用header标签的时候，浏览器就会知道，他是一个标签，我就按照标签的标准来渲染他就行了。但是第二个问题出现了，那就是我们也不知道我会在这次开发中都使用到哪些个HTML5的标签，那么我们就把每一个HTML5标签都声明一遍就可以了。
+        
+      </div>
+
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+
+      <h2 class="post-list__post-title post-title">
+        <a href="/2015/07/02/CSS3介绍/" title="link to CSS3介绍">CSS3介绍</a>
+      </h2>
+
+      <div class="post-list__meta">
+
+        <time datetime="2015-07-02" class="post-list__meta--date date">2015-07-02</time> 
+      </div>
+
+      <div class="excerpt">
+        
+          <blockquote>
+<p>在CSS2基础上，增强或新增了许多特性， 弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。</p>
+</blockquote>
+<h4 id="CSS3的现状"><a href="#CSS3的现状" class="headerlink" title="CSS3的现状"></a>CSS3的现状</h4><p> 1、浏览器支持程度差，需要添加私有前缀<br> 2、移动端支持优于PC端<br> 3、不断改进中<br> 4、应用相对广泛</p>
+<h4 id="如何对待"><a href="#如何对待" class="headerlink" title="如何对待"></a>如何对待</h4><p> 1、坚持渐进增强原则<br> 2、考虑用户群体<br> 3、遵照产品的方案<br> 4、听Boss的<br>
         
       </div>
 

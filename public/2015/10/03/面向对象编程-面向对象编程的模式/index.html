@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      面向对象编程-面向对象编程的模式 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="目录
+构造函数的继承
+多重继承
+模块
+基本的实现方法
+封装私有变量：构造函数的写法
+封装私有变量：立即执行函数的写法
+模块的放大模式
+输入全局变量
+
+
+参考链接本节介绍JavaScript语言实际编程中，涉及面向对象编程的一些模式。
+
+1.构造函数的继承让一个构造函数继承另一个构造函数，是非常常见的需求。
+这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。1234function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象编程-面向对象编程的模式 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2015/10/03/面向对象编程-面向对象编程的模式/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目录
+构造函数的继承
+多重继承
+模块
+基本的实现方法
+封装私有变量：构造函数的写法
+封装私有变量：立即执行函数的写法
+模块的放大模式
+输入全局变量
+
+
+参考链接本节介绍JavaScript语言实际编程中，涉及面向对象编程的一些模式。
+
+1.构造函数的继承让一个构造函数继承另一个构造函数，是非常常见的需求。
+这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。1234function">
+<meta property="og:updated_time" content="2017-03-06T10:45:16.293Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象编程-面向对象编程的模式 | Hexo">
+<meta name="twitter:description" content="目录
+构造函数的继承
+多重继承
+模块
+基本的实现方法
+封装私有变量：构造函数的写法
+封装私有变量：立即执行函数的写法
+模块的放大模式
+输入全局变量
+
+
+参考链接本节介绍JavaScript语言实际编程中，涉及面向对象编程的一些模式。
+
+1.构造函数的继承让一个构造函数继承另一个构造函数，是非常常见的需求。
+这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。1234function">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">面向对象编程-面向对象编程的模式</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2015-10-03" class="post-meta__date date">2015-10-03</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/面向对象编程/">-面向对象编程</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>构造函数的继承</li>
+<li>多重继承</li>
+<li>模块<ul>
+<li>基本的实现方法</li>
+<li>封装私有变量：构造函数的写法</li>
+<li>封装私有变量：立即执行函数的写法</li>
+<li>模块的放大模式</li>
+<li>输入全局变量</li>
+</ul>
+</li>
+<li>参考链接<br>本节介绍JavaScript语言实际编程中，涉及面向对象编程的一些模式。</li>
+</ul>
+<h2 id="1-构造函数的继承"><a href="#1-构造函数的继承" class="headerlink" title="1.构造函数的继承"></a>1.构造函数的继承</h2><p>让一个构造函数继承另一个构造函数，是非常常见的需求。</p>
+<p>这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function Sub(value) &#123;</div><div class="line">  Super.call(this);</div><div class="line">  this.prop = value;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Sub是子类的构造函数，this是子类的实例。在实例上调用父类的构造函数Super，就会让子类实例具有父类实例的属性。<br><a id="more"></a><br>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sub.prototype = Object.create(Super.prototype);</div><div class="line">Sub.prototype.constructor = Sub;</div><div class="line">Sub.prototype.method = &apos;...&apos;;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Sub.prototype是子类的原型，要将它赋值为Object.create(Super.prototype)，而不是直接等于Super.prototype。否则后面两行对Sub.prototype的操作，会连父类的原型Super.prototype一起修改掉。</p>
+<p>另外一种写法是Sub.prototype等于一个父类实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sub.prototype = new Super();</div></pre></td></tr></table></figure></p>
+<p>上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以不推荐使用这种写法。</p>
+<p>举例来说，下面是一个Shape构造函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function Shape() &#123;</div><div class="line">  this.x = 0;</div><div class="line">  this.y = 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Shape.prototype.move = function (x, y) &#123;</div><div class="line">  this.x += x;</div><div class="line">  this.y += y;</div><div class="line">  console.info(&apos;Shape moved.&apos;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>我们需要让Rectangle构造函数继承Shape。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// 第一步，子类继承父类的实例</div><div class="line">function Rectangle() &#123;</div><div class="line">  Shape.call(this); // 调用父类构造函数</div><div class="line">&#125;</div><div class="line">// 另一种写法</div><div class="line">function Rectangle() &#123;</div><div class="line">  this.base = Shape;</div><div class="line">  this.base();</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 第二步，子类继承父类的原型</div><div class="line">Rectangle.prototype = Object.create(Shape.prototype);</div><div class="line">Rectangle.prototype.constructor = Rectangle;</div></pre></td></tr></table></figure></p>
+<p>采用这样的写法以后，instanceof运算符会对子类和父类的构造函数，都返回true。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var rect = new Rectangle();</div><div class="line">rect.move(1, 1) // &apos;Shape moved.&apos;</div><div class="line"></div><div class="line">rect instanceof Rectangle  // true</div><div class="line">rect instanceof Shape  // true</div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类是整体继承父类。有时只需要单个方法的继承，这时可以采用下面的写法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ClassB.prototype.print = function() &#123;</div><div class="line">  ClassA.prototype.print.call(this);</div><div class="line">  // some code</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。</p>
+<h2 id="2-多重继承"><a href="#2-多重继承" class="headerlink" title="2.多重继承"></a>2.多重继承</h2><p>JavaScript不提供多重继承功能，即不允许一个对象同时继承多个对象。但是，可以通过变通方法，实现这个功能。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function M1() &#123;</div><div class="line">  this.hello = &apos;hello&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function M2() &#123;</div><div class="line">  this.world = &apos;world&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function S() &#123;</div><div class="line">  M1.call(this);</div><div class="line">  M2.call(this);</div><div class="line">&#125;</div><div class="line">S.prototype = M1.prototype;</div><div class="line"></div><div class="line">var s = new S();</div><div class="line">s.hello // &apos;hello&apos;</div><div class="line">s.world // &apos;world&apos;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类S同时继承了父类M1和M2。当然，从继承链来看，S只有一个父类M1，但是由于在S的实例上，同时执行M1和M2的构造函数，所以它同时继承了这两个类的方法。</p>
+<h2 id="3-模块"><a href="#3-模块" class="headerlink" title="3.模块"></a>3.模块</h2><p>随着网站逐渐变成”互联网应用程序”，嵌入网页的JavaScript代码越来越庞大，越来越复杂。网页越来越像桌面程序，需要一个团队分工协作、进度管理、单元测试等等……开发者不得不使用软件工程的方法，管理网页的业务逻辑。</p>
+<p>JavaScript模块化编程，已经成为一个迫切的需求。理想情况下，开发者只需要实现核心的业务逻辑，其他都可以加载别人已经写好的模块。</p>
+<p>但是，JavaScript不是一种模块化编程语言，ES5不支持”类”（class），更遑论”模块”（module）了。ES6正式支持”类”和”模块”，但还没有成为主流。JavaScript社区做了很多努力，在现有的运行环境中，实现模块的效果。</p>
+<h3 id="3-1基本的实现方法"><a href="#3-1基本的实现方法" class="headerlink" title="3.1基本的实现方法"></a>3.1基本的实现方法</h3><p>模块是实现特定功能的一组属性和方法的封装。</p>
+<p>只要把不同的函数（以及记录状态的变量）简单地放在一起，就算是一个模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function m1() &#123;</div><div class="line">  //...</div><div class="line">&#125;</div><div class="line"></div><div class="line">function m2() &#123;</div><div class="line">  //...</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的函数m1()和m2()，组成一个模块。使用的时候，直接调用就行了。</p>
+<p>这种做法的缺点很明显：”污染”了全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间看不出直接关系。</p>
+<p>为了解决上面的缺点，可以把模块写成一个对象，所有的模块成员都放到这个对象里面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var module1 = new Object(&#123;</div><div class="line">　_count : 0,</div><div class="line">　m1 : function ()&#123;</div><div class="line">　　//...</div><div class="line">　&#125;,</div><div class="line">　m2 : function ()&#123;</div><div class="line">  　//...</div><div class="line">　&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>上面的函数m1和m2，都封装在module1对象里。使用的时候，就是调用这个对象的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module1.m1();</div></pre></td></tr></table></figure></p>
+<p>但是，这样的写法会暴露所有模块成员，内部状态可以被外部改写。比如，外部代码可以直接改变内部计数器的值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module1._count = 5;</div></pre></td></tr></table></figure></p>
+<h3 id="3-2封装私有变量：构造函数的写法"><a href="#3-2封装私有变量：构造函数的写法" class="headerlink" title="3.2封装私有变量：构造函数的写法"></a>3.2封装私有变量：构造函数的写法</h3><p>我们可以利用构造函数，封装私有变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function StringBuilder() &#123;</div><div class="line">  var buffer = [];</div><div class="line"></div><div class="line">  this.add = function (str) &#123;</div><div class="line">     buffer.push(str);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  this.toString = function () &#123;</div><div class="line">    return buffer.join(&apos;&apos;);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种方法将私有变量封装在构造函数中，违反了构造函数与实例对象相分离的原则。并且，非常耗费内存。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function StringBuilder() &#123;</div><div class="line">  this._buffer = [];</div><div class="line">&#125;</div><div class="line"></div><div class="line">StringBuilder.prototype = &#123;</div><div class="line">  constructor: StringBuilder,</div><div class="line">  add: function (str) &#123;</div><div class="line">    this._buffer.push(str);</div><div class="line">  &#125;,</div><div class="line">  toString: function () &#123;</div><div class="line">    return this._buffer.join(&apos;&apos;);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>这种方法将私有变量放入实例对象中，好处是看上去更自然，但是它的私有变量可以从外部读写，不是很安全。</p>
+<h3 id="3-3封装私有变量：立即执行函数的写法"><a href="#3-3封装私有变量：立即执行函数的写法" class="headerlink" title="3.3封装私有变量：立即执行函数的写法"></a>3.3封装私有变量：立即执行函数的写法</h3><p>使用“立即执行函数”（Immediately-Invoked Function Expression，IIFE），将相关的属性和方法封装在一个函数作用域里面，可以达到不暴露私有成员的目的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var module1 = (function () &#123;</div><div class="line">　var _count = 0;</div><div class="line">　var m1 = function () &#123;</div><div class="line">　  //...</div><div class="line">　&#125;;</div><div class="line">　var m2 = function () &#123;</div><div class="line">　　//...</div><div class="line">　&#125;;</div><div class="line">　return &#123;</div><div class="line">　　m1 : m1,</div><div class="line">　　m2 : m2</div><div class="line">　&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure></p>
+<p>使用上面的写法，外部代码无法读取内部的_count变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.info(module1._count); //undefined</div></pre></td></tr></table></figure></p>
+<p>上面的module1就是JavaScript模块的基本写法。下面，再对这种写法进行加工。</p>
+<h3 id="3-4模块的放大模式"><a href="#3-4模块的放大模式" class="headerlink" title="3.4模块的放大模式"></a>3.4模块的放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”（augmentation）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var module1 = (function (mod)&#123;</div><div class="line">　mod.m3 = function () &#123;</div><div class="line">　　//...</div><div class="line">　&#125;;</div><div class="line">　return mod;</div><div class="line">&#125;)(module1);</div></pre></td></tr></table></figure></p>
+<p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上面的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”（Loose augmentation）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var module1 = ( function (mod)&#123;</div><div class="line">　//...</div><div class="line">　return mod;</div><div class="line">&#125;)(window.module1 || &#123;&#125;);</div></pre></td></tr></table></figure></p>
+<p>与”放大模式”相比，“宽放大模式”就是“立即执行函数”的参数可以是空对象。</p>
+<h2 id="3-5输入全局变量"><a href="#3-5输入全局变量" class="headerlink" title="3.5输入全局变量"></a>3.5输入全局变量</h2><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p>
+<p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var module1 = (function ($, YAHOO) &#123;</div><div class="line">　//...</div><div class="line">&#125;)(jQuery, YAHOO);</div></pre></td></tr></table></figure></p>
+<p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
+<p>立即执行函数还可以起到命名空间的作用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(function($, window, document) &#123;</div><div class="line"></div><div class="line">  function go(num) &#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  function handleEvents() &#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  function initialize() &#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  function dieCarouselDie() &#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  //attach to the global scope</div><div class="line">  window.finalCarousel = &#123;</div><div class="line">    init : initialize,</div><div class="line">    destroy : dieCouraselDie</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;)( jQuery, window, document );</div></pre></td></tr></table></figure></p>
+<p>上面代码中，finalCarousel对象输出到全局，对外暴露init和destroy接口，内部方法go、handleEvents、initialize、dieCarouselDie都是外部无法调用的。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

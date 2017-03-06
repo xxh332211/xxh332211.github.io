@@ -7,7 +7,7 @@
     
 
     <title>
-      Hexo 
+      Tag: -面向对象编程 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,11 +17,11 @@
     
 
     <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:title" content="Tag: -面向对象编程">
+<meta property="og:url" content="http://yoursite.com/tags/面向对象编程/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Tag: -面向对象编程">
     
     
     
@@ -41,8 +41,8 @@
     </span>
 
     
- 
-<header class="panel-cover">
+
+<header class="panel-cover panel-cover--collapsed">
 
 
   <div class="panel-main">
@@ -142,7 +142,8 @@ classes that you can use:
             
 
 
-   <!-- do nothing -->
+  <h1 class="archive-title">Tag: -面向对象编程</h1>
+  <hr class="post-list__divider" />
 
 
 <div class="main-post-list">
@@ -305,62 +306,6 @@ classes that you can use:
 </li>
 </ul>
 <h2 id="1-对象的概念"><a href="#1-对象的概念" class="headerlink" title="1.对象的概念"></a>1.对象的概念</h2><p>“面向对象编程”（Object Oriented Programming，缩写为OOP）是目前主流的编程范式。它的核心思想是将真实世界中各种复杂的关系，抽象为一个个对象，然后由对象之间的分工与合作，完成对真实世界的模拟。<br>
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2015/09/02/HTML5的兼容性/" title="link to HTML5的兼容性">HTML5的兼容性</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2015-09-02" class="post-list__meta--date date">2015-09-02</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          <ul>
-<li>因为在IE8及一下的IE版本是不兼容HTML5的新元素的，所以我们要是用HTML5开发的话，第一个要解决的就是兼容性的问题。<h2 id="HTML5的兼容性"><a href="#HTML5的兼容性" class="headerlink" title="HTML5的兼容性"></a>HTML5的兼容性</h2></li>
-<li>因为HTML5的新元素就是一些新的标签，IE只是不认识这些标签而已，那我们解决的问题就是让IE8一下版本的浏览器认识这些标签，或者说知道他就是一个标签，那么我们就解决了兼容性问题。</li>
-<li>比如：header 这个标签在IE8及一下的版本的浏览器中是不认识的，但是我们却可以通过一小段JS代码来创建标签，通过JS来创建的标签浏览器是可以识别的，我们就可以利用这个点来解决兼容性问题。</li>
-<li><p>这里就需要用到一个方法，document.createElement();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var oHeader = document.createElement(&quot;header&quot;);//-&gt; 动态创建一个标签‘header’</div><div class="line">document.body.appendChild(oHeader)//-&gt; 把header标签动态添加到body中</div></pre></td></tr></table></figure>
-</li>
-<li><p>这样添加以后我们就可以在IE8下使用header标签了。但是，我们不确定我们的每一次开发中到底使用多少个header标签，也不确定具体要什么时候使用，如果说我们每一次使用的时候都写一小段JS代码来动态创建和动态添加的话，那就会很耗性能，所以我们只需要在最开始告诉浏览器一声，我创建了一个header标签就可以，至于什么时候用浏览器你就别管了，反正只要出现了这个标签你知道他是什么，会渲染他就可以了，我们就可以这样写</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.createElement(&quot;header&quot;);</div></pre></td></tr></table></figure>
-<ul>
-<li>这样就可以了，以后你再使用header标签的时候，浏览器就会知道，他是一个标签，我就按照标签的标准来渲染他就行了。但是第二个问题出现了，那就是我们也不知道我会在这次开发中都使用到哪些个HTML5的标签，那么我们就把每一个HTML5标签都声明一遍就可以了。
-        
-      </div>
-
-      <hr class="post-list__divider" />
-    </li>
-    
-    <li>
-
-      <h2 class="post-list__post-title post-title">
-        <a href="/2015/07/02/CSS3介绍/" title="link to CSS3介绍">CSS3介绍</a>
-      </h2>
-
-      <div class="post-list__meta">
-
-        <time datetime="2015-07-02" class="post-list__meta--date date">2015-07-02</time> 
-      </div>
-
-      <div class="excerpt">
-        
-          <blockquote>
-<p>在CSS2基础上，增强或新增了许多特性， 弥补了CSS2的众多不足之处，使得Web开发变得更为高效和便捷。</p>
-</blockquote>
-<h4 id="CSS3的现状"><a href="#CSS3的现状" class="headerlink" title="CSS3的现状"></a>CSS3的现状</h4><p> 1、浏览器支持程度差，需要添加私有前缀<br> 2、移动端支持优于PC端<br> 3、不断改进中<br> 4、应用相对广泛</p>
-<h4 id="如何对待"><a href="#如何对待" class="headerlink" title="如何对待"></a>如何对待</h4><p> 1、坚持渐进增强原则<br> 2、考虑用户群体<br> 3、遵照产品的方案<br> 4、听Boss的<br>
         
       </div>
 

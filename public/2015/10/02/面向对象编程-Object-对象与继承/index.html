@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      面向对象编程-Object 对象与继承 | Hexo 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="John Doe">
+    
+    
+
+    <meta name="description" content="目录
+Object.getOwnPropertyNames()
+Object.prototype.hasOwnProperty()
+in 运算符和 for…in 循环
+对象的拷贝
+参考链接通过原型链，对象的属性分成两种：自身的属性和继承的属性。JavaScript 语言在Object对象上面，提供了很多相关方法，来处理这两种不同的属性。
+
+1.Object.getOwnPropertyNames(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象编程-Object 对象与继承 | Hexo">
+<meta property="og:url" content="http://yoursite.com/2015/10/02/面向对象编程-Object-对象与继承/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="目录
+Object.getOwnPropertyNames()
+Object.prototype.hasOwnProperty()
+in 运算符和 for…in 循环
+对象的拷贝
+参考链接通过原型链，对象的属性分成两种：自身的属性和继承的属性。JavaScript 语言在Object对象上面，提供了很多相关方法，来处理这两种不同的属性。
+
+1.Object.getOwnPropertyNames(">
+<meta property="og:updated_time" content="2017-03-06T10:43:52.787Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象编程-Object 对象与继承 | Hexo">
+<meta name="twitter:description" content="目录
+Object.getOwnPropertyNames()
+Object.prototype.hasOwnProperty()
+in 运算符和 for…in 循环
+对象的拷贝
+参考链接通过原型链，对象的属性分成两种：自身的属性和继承的属性。JavaScript 语言在Object对象上面，提供了很多相关方法，来处理这两种不同的属性。
+
+1.Object.getOwnPropertyNames(">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">面向对象编程-Object 对象与继承</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2015-10-02" class="post-meta__date date">2015-10-02</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/面向对象编程/">-面向对象编程</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li>Object.getOwnPropertyNames()</li>
+<li>Object.prototype.hasOwnProperty()</li>
+<li>in 运算符和 for…in 循环</li>
+<li>对象的拷贝</li>
+<li>参考链接<br>通过原型链，对象的属性分成两种：自身的属性和继承的属性。JavaScript 语言在Object对象上面，提供了很多相关方法，来处理这两种不同的属性。</li>
+</ul>
+<h2 id="1-Object-getOwnPropertyNames"><a href="#1-Object-getOwnPropertyNames" class="headerlink" title="1.Object.getOwnPropertyNames()"></a>1.Object.getOwnPropertyNames()</h2><p>Object.getOwnPropertyNames方法返回一个数组，成员是对象本身的所有属性的键名，不包含继承的属性键名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Object.getOwnPropertyNames(Date)</div><div class="line">// [&quot;parse&quot;, &quot;arguments&quot;, &quot;UTC&quot;, &quot;caller&quot;, &quot;name&quot;, &quot;prototype&quot;, &quot;now&quot;, &quot;length&quot;]</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Object.getOwnPropertyNames方法返回Date所有自身的属性名。<br><a id="more"></a><br>对象本身的属性之中，有的是可以枚举的（enumerable），有的是不可以枚举的，Object.getOwnPropertyNames方法返回所有键名。只获取那些可以枚举的属性，使用Object.keys方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.keys(Date) // []</div></pre></td></tr></table></figure></p>
+<h2 id="2-Object-prototype-hasOwnProperty"><a href="#2-Object-prototype-hasOwnProperty" class="headerlink" title="2.Object.prototype.hasOwnProperty()"></a>2.Object.prototype.hasOwnProperty()</h2><p>对象实例的hasOwnProperty方法返回一个布尔值，用于判断某个属性定义在对象自身，还是定义在原型链上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Date.hasOwnProperty(&apos;length&apos;)</div><div class="line">// true</div><div class="line"></div><div class="line">Date.hasOwnProperty(&apos;toString&apos;)</div><div class="line">// false</div></pre></td></tr></table></figure></p>
+<p>hasOwnProperty方法是JavaScript之中唯一一个处理对象属性时，不会遍历原型链的方法。</p>
+<h2 id="3-in-运算符和-for…in-循环"><a href="#3-in-运算符和-for…in-循环" class="headerlink" title="3.in 运算符和 for…in 循环"></a>3.in 运算符和 for…in 循环</h2><p>in运算符返回一个布尔值，表示一个对象是否具有某个属性。它不区分该属性是对象自身的属性，还是继承的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&apos;length&apos; in Date // true</div><div class="line">&apos;toString&apos; in Date // true</div></pre></td></tr></table></figure></p>
+<p>in运算符常用于检查一个属性是否存在。</p>
+<p>获得对象的所有可枚举属性（不管是自身的还是继承的），可以使用for…in循环。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o1 = &#123;p1: 123&#125;;</div><div class="line"></div><div class="line">var o2 = Object.create(o1, &#123;</div><div class="line">  p2: &#123; value: &quot;abc&quot;, enumerable: true &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">for (p in o2) &#123;console.info(p);&#125;</div><div class="line">// p2</div><div class="line">// p1</div></pre></td></tr></table></figure></p>
+<p>为了在for…in循环中获得对象自身的属性，可以采用hasOwnProperty方法判断一下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for ( var name in object ) &#123;</div><div class="line">  if ( object.hasOwnProperty(name) ) &#123;</div><div class="line">    /* loop code */</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>获得对象的所有属性（不管是自身的还是继承的，以及是否可枚举），可以使用下面的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function inheritedPropertyNames(obj) &#123;</div><div class="line">  var props = &#123;&#125;;</div><div class="line">  while(obj) &#123;</div><div class="line">    Object.getOwnPropertyNames(obj).forEach(function(p) &#123;</div><div class="line">      props[p] = true;</div><div class="line">    &#125;);</div><div class="line">    obj = Object.getPrototypeOf(obj);</div><div class="line">  &#125;</div><div class="line">  return Object.getOwnPropertyNames(props);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码依次获取obj对象的每一级原型对象“自身”的属性，从而获取Obj对象的“所有”属性，不管是否可遍历。</p>
+<p>下面是一个例子，列出Date对象的所有属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">inheritedPropertyNames(Date)</div><div class="line">// [</div><div class="line">//  &quot;caller&quot;,</div><div class="line">//  &quot;constructor&quot;,</div><div class="line">//  &quot;toString&quot;,</div><div class="line">//  &quot;UTC&quot;,</div><div class="line">//  &quot;call&quot;,</div><div class="line">//  &quot;parse&quot;,</div><div class="line">//  &quot;prototype&quot;,</div><div class="line">//  &quot;__defineSetter__&quot;,</div><div class="line">//  &quot;__lookupSetter__&quot;,</div><div class="line">//  &quot;length&quot;,</div><div class="line">//  &quot;arguments&quot;,</div><div class="line">//  &quot;bind&quot;,</div><div class="line">//  &quot;__lookupGetter__&quot;,</div><div class="line">//  &quot;isPrototypeOf&quot;,</div><div class="line">//  &quot;toLocaleString&quot;,</div><div class="line">//  &quot;propertyIsEnumerable&quot;,</div><div class="line">//  &quot;valueOf&quot;,</div><div class="line">//  &quot;apply&quot;,</div><div class="line">//  &quot;__defineGetter__&quot;,</div><div class="line">//  &quot;name&quot;,</div><div class="line">//  &quot;now&quot;,</div><div class="line">//  &quot;hasOwnProperty&quot;</div><div class="line">// ]</div></pre></td></tr></table></figure></p>
+<h2 id="4-对象的拷贝"><a href="#4-对象的拷贝" class="headerlink" title="4.对象的拷贝"></a>4.对象的拷贝</h2><p>如果要拷贝一个对象，需要做到下面两件事情。</p>
+<ul>
+<li>确保拷贝后的对象，与原对象具有同样的prototype原型对象。</li>
+<li>确保拷贝后的对象，与原对象具有同样的属性。</li>
+</ul>
+<p>下面就是根据上面两点，编写的对象拷贝的函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function copyObject(orig) &#123;</div><div class="line">  var copy = Object.create(Object.getPrototypeOf(orig));</div><div class="line">  copyOwnPropertiesFrom(copy, orig);</div><div class="line">  return copy;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function copyOwnPropertiesFrom(target, source) &#123;</div><div class="line">  Object</div><div class="line">  .getOwnPropertyNames(source)</div><div class="line">  .forEach(function(propKey) &#123;</div><div class="line">    var desc = Object.getOwnPropertyDescriptor(source, propKey);</div><div class="line">    Object.defineProperty(target, propKey, desc);</div><div class="line">  &#125;);</div><div class="line">  return target;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="5-参考链接"><a href="#5-参考链接" class="headerlink" title="5.参考链接"></a>5.参考链接</h2><p>[1] Dr. Axel Rauschmayer, JavaScript properties: inheritance and enumerability</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
